@@ -9,6 +9,14 @@ pipeline {
                 gcc -o calculator calculator.c MathOperation.c
                 '''
             }
+            post {
+                success {
+                    echo "Compile success..."
+                }
+                failure {
+                    echo "Compile failed..."
+                }
+            }
         }
         stage('Test') {
             steps {
