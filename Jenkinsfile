@@ -20,10 +20,24 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo "Testing.."
+                echo "Compile test code"
                 sh '''
-                echo "doing test stuff.."
+                gcc -o test_calculator test_calculator.c MathOperation.c
                 '''
+                echo "Test code compile complete."
+                echo "Running unit tests..."
+                sh '''
+                ./test_calculator
+                '''
+                echo "Unit test complete"
+            }
+            post {
+                success {
+                    echo "Test success..."
+                }
+                failure {
+                    echo "Test failed..."
+                }
             }
         }
         stage('Deliver') {
