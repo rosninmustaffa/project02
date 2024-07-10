@@ -1,5 +1,6 @@
 // test_calculator.c
 #include <assert.h>
+#include <stdio.h>
 #include "MathOperation.h"
 
 void test_add() 
