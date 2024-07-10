@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'gcc:4.9'
-            label 'gcc_docker'
         }
     }   
     stages {
